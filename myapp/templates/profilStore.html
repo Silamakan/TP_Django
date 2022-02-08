@@ -1,0 +1,44 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Blog {% endblock %}
+
+{% block content %}
+
+    <h2>This is the big stores of the world </h2>
+    <a href="{% url 'add_profileStore' %}" class="btn btn-info mt-5 mx-5">Add Store</a>
+    {% if profiles %}
+        <table class="table bg-light caption-top my-5">
+            <caption class="bg-light fw-bold text-center text-dark">List of all stores</caption>
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Created_at</th>
+                <th scope="col">Updated_at</th>
+                <th scope="col">Magasin_id</th>
+                <th scope="col">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for profil in profiles %}
+                <tr>
+                    <th scope="row">{{ profil.id }}</th>
+                    <td>{{ profil.email }}</td>
+                    <td>{{ profil.phone }}</td>
+                    <td>{{ profil.created_at }}</td>
+                    <td>{{ profil.updated_at }}</td>
+                    <td>{{ profil.magasin_id }}</td>
+
+                    <td>
+                        <a href="{% url 'update-profile' profil.id %}" class="btn btn-primary col-sm-4">Edit</a>
+                        <a href="{% url 'delete_profileStore' profil.id %}" class="btn btn-danger col-sm">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <h3>Please go to admin and add a profil under 'myapp'</h3>
+    {% endif %}
+{% endblock %}

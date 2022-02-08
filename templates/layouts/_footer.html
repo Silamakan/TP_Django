@@ -1,0 +1,18 @@
+<footer>
+  <div class="container-fluid bg-light mt-5">
+    <div class="row">
+      <div class="col">
+        <ul class="list-inline text-center">
+          <li class="list-inline-item"><a  href="{% url 'about' %}">About</a></li>
+          <li class="list-inline-item">&middot;</li>
+          <li class="list-inline-item"><a href="{% url 'contact' %}">Contact</a></li>
+          <li class="list-inline-item">&middot;</li>
+          <li class="list-inline-item"><a href="{% url 'home' %}">Conditions d'utilisations</a></li>
+        </ul>
+        <hr>
+        <p class="text-center">&copy; Copyright {% now 'Y' %} &middot; Produits &middot; All rights reserved!</p>
+      </div>
+    </div>
+</div>
+</footer>
+

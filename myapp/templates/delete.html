@@ -1,0 +1,14 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Supprimer {% endblock %}
+
+{% block content %}
+    <h1>Supprimer une personne</h1>
+
+    <p>Etes-vous sûr de vouloir supprimer ?</p>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger"> Supprimer</button>
+    </form>
+{% endblock %}

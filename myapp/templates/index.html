@@ -1,0 +1,141 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Blog {% endblock %}
+
+{% block content %}
+
+    <h2>The persons of my site</h2>
+    <a href="{% url 'add_person' %}" class="btn btn-info mt-5 mx-5">Add Person</a>
+    {% if persons %}
+        <table class="table bg-light caption-top table-striped my-5">
+            <caption class="bg-dark text-white fw-bold text-center text-dark">List of all people</caption>
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Age</th>
+                <th scope="col">Sex</th>
+                <th scope="col">Country</th>
+                <th scope="col">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for person in persons %}
+                <tr>
+                    <th scope="row">{{ person.id }}</th>
+                    <td>{{ person.name }}</td>
+                    <td>{{ person.age }}</td>
+                    <td>{{ person.sex }}</td>
+                    <td>{{ person.country }}</td>
+                    <td>
+                        <a href="{% url 'update-person' person.id %}" class="btn btn-primary btn-sm">Edit</a>
+                        <a href="{% url 'delete_person' person.id %}" class="btn btn-danger btn-sm">Supprimer</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <h3>Please go to admin and add a person under 'myapp'</h3>
+    {% endif %}
+    
+    {% if persons_major %}
+        <table class="table table-bordered table-striped bg-light caption-top my-5">
+            <caption class="bg-light fw-bolder text-center text-dark">List of people over the age of 18</caption>
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Age</th>
+                <th scope="col">Sex</th>
+                <th scope="col">Country</th>
+                <th scope="col">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for person in persons_major %}
+                <tr>
+                    <th scope="row">{{ person.id }}</th>
+                    <td>{{ person.name }}</td>
+                    <td>{{ person.age }}</td>
+                    <td>{{ person.sex }}</td>
+                    <td>{{ person.country }}</td>
+                    <td>
+                        <a href="{% url 'update-person' person.id %}" class="btn btn-primary btn-sm">Edit</a>
+                        <a href="{% url 'delete_person' person.id %}" class="btn btn-danger btn-sm">Supprimer</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <h3>Please this people don't exist in my data base</h3>
+    {% endif %}
+
+    {% if persons_major %}
+        <table class="table bg-light caption-top">
+            <caption class="bg-light fw-bolder text-center text-dark">List of Men </caption>
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Age</th>
+                <th scope="col">Sex</th>
+                <th scope="col">Country</th>
+                <th scope="col">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for person in persons_Male %}
+                <tr>
+                    <th scope="row">{{ person.id }}</th>
+                    <td>{{ person.name }}</td>
+                    <td>{{ person.age }}</td>
+                    <td>{{ person.sex }}</td>
+                    <td>{{ person.country }}</td>
+                    <td>
+                        <a href="{% url 'update-person' person.id %}" class="btn btn-primary btn-sm">Edit</a>
+                        <a href="{% url 'delete_person' person.id %}" class="btn btn-danger btn-sm">Supprimer</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <h3>Please this people don't exist in my data base</h3>
+    {% endif %}
+
+    {% if persons_major %}
+        <table class="table bg-light caption-top">
+            <caption class="bg-light fw-bolder text-center text-dark">List of Women </caption>
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Age</th>
+                <th scope="col">Sex</th>
+                <th scope="col">Country</th>
+                <th scope="col">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for person in persons_Female %}
+                <tr>
+                    <th scope="row">{{ person.id }}</th>
+                    <td>{{ person.name }}</td>
+                    <td>{{ person.age }}</td>
+                    <td>{{ person.sex }}</td>
+                    <td>{{ person.country }}</td>
+                    <td>
+                        <a href="{% url 'update-person' person.id %}" class="btn btn-primary btn-sm">Edit</a>
+                        <a href="{% url 'delete_person' person.id %}" class="btn btn-danger btn-sm">Supprimer</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <h3>Please this people don't exist in my data base</h3>
+    {% endif %}
+²
+{% endblock %}
